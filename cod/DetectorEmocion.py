@@ -26,15 +26,15 @@ import numpy as np
 class DetectorEmocion:
     # Constructor: inicializa parametros para el modelo.
     def __init__(self, ws, hs, nc, eps, bs, cn, train_data_dir, val_data_dir):
-        self.__width_shape = ws
-        self.__height_shape = hs
-        self.__num_classes = nc # Cantidad de emociones por clasificar.
-        self.__epochs = eps # Cantidad de epocas
-        self.__batch_size = bs #Tamaño del lote
-        self.__class_names = cn # Lista de las emociones 
-        self.__train_datagen = ImageDataGenerator() # generador de datos tipo imagen
-        self.__val_datagen = ImageDataGenerator()
-        self.__train_generator = self.__train_datagen.flow_from_directory(  
+        self.width_shape = ws
+        self.height_shape = hs
+        self.num_classes = nc # Cantidad de emociones por clasificar.
+        self.epochs = eps # Cantidad de epocas
+        self.batch_size = bs #Tamaño del lote
+        self.class_names = cn # Lista de las emociones 
+        self.train_datagen = ImageDataGenerator() # generador de datos tipo imagen
+        self.val_datagen = ImageDataGenerator()
+        self.train_generator = self.__train_datagen.flow_from_directory(  
             train_data_dir, # string con el directorio de imagenes de entrenamiento
             target_size = (ws, hs),
             batch_size = bs,
