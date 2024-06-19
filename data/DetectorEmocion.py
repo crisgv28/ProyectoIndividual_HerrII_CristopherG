@@ -20,7 +20,7 @@ from mlxtend.plotting import plot_confusion_matrix
 from tensorflow.keras.models import load_model
 import numpy as np
 
-from sklearn.metrics import classification_report
+
 
 # Clase modelo de deteccion de emociones en imagenes
 class DetectorEmocion:
