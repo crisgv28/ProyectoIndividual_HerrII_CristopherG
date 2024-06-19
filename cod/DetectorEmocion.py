@@ -36,6 +36,7 @@ class DetectorEmocion:
         self.val_datagen = ImageDataGenerator()
         self.__train_datagen = ImageDataGenerator()
         self.__val_datagen = ImageDataGenerator()
+        self.val_data_dir = val_data_dir
         self.train_generator = self.__train_datagen.flow_from_directory(
             train_data_dir,
             target_size=(ws, hs),
