@@ -18,7 +18,7 @@ nombres_Declases = ['angry','disgust','fear','happy','neutral','sad','surprise']
 modelo = DetectorEmocion(ancho, largo, num_clases, epocas, tamano_lote, nombres_Declases, ruta_data_train, ruta_data_val)
 
 # Construir, compilar y entrenar el modelo
-modelo.construirModelo()
+modelo = modelo.construirModelo()
 modelo.compilar_modelo()
 modelo.entrenar_modelo()
 
