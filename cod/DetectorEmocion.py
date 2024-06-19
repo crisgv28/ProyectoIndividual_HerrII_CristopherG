@@ -49,20 +49,10 @@ class DetectorEmocion:
             batch_size=bs,
             color_mode='grayscale',
             class_mode='categorical', shuffle=True)
-        # self.train_generator = self.train_datagen.flow_from_directory(  
-        #     train_data_dir, # string con el directorio de imagenes de entrenamiento
-        #     target_size = (ws, hs),
-        #     batch_size = bs,
-        #     color_mode = 'grayscale', # se cambia el color de las imagenes gris.
-        #     class_mode = 'categorical', shuffle = True)
-        # self.val_generator = self.val_datagen.flow_from_directory(  
-        #     val_data_dir, # string con el directorio de imagenes de validacion
-        #     target_size = (ws, hs),
-        #     batch_size = bs,
-        #     color_mode = 'grayscale',
-        #     class_mode = 'categorical', shuffle = True)
+        # Construir el modelo al crear la instancia de la clase
+        self.model = self.construirModelo()
     
-    #
+    # Construye el modelo
     def construirModelo(self):
         model = Sequential() # clase para crear un modelo en los que las capas se colocan una tras otra
         # Extracción de Características
@@ -115,7 +105,8 @@ class DetectorEmocion:
     
     # Compilar el modelo, se establecen los componentes esenciales necesarios para el entrenamiento, como la función de pérdida, el optimizador y las métricas de evaluación.
     def compilar_modelo(self):
-        opt = Adam(learning_rate=1e-4, decay=1e-4 / self.epochs)
+        #opt = Adam(learning_rate=1e-4, decay=1e-4 / self.epochs)
+        opt = Adam(learning_rate=1e-4)
         self.model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
     
     # Entrena el modelo con los generadores de datos de entrenamiento y validación
