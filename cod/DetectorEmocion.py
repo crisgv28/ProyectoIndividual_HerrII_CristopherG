@@ -34,13 +34,13 @@ class DetectorEmocion:
         self.class_names = cn # Lista de las emociones 
         self.train_datagen = ImageDataGenerator() # generador de datos tipo imagen
         self.val_datagen = ImageDataGenerator()
-        self.train_generator = self.__train_datagen.flow_from_directory(  
+        self.train_generator = self.train_datagen.flow_from_directory(  
             train_data_dir, # string con el directorio de imagenes de entrenamiento
             target_size = (ws, hs),
             batch_size = bs,
             color_mode = 'grayscale', # se cambia el color de las imagenes gris.
             class_mode = 'categorical', shuffle = True)
-        self.__val_generator = self.__val_datagen.flow_from_directory(  
+        self.val_generator = self.val_datagen.flow_from_directory(  
             val_data_dir, # string con el directorio de imagenes de validacion
             target_size = (ws, hs),
             batch_size = bs,
